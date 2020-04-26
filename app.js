@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+
 const loginRouter = require("./routes/loginRoute");
 const registerRouter = require("./routes/registerRoute");
 const courseTypeRouter = require("./routes/courseTypeRoute");

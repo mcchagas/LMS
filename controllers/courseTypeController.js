@@ -23,6 +23,8 @@ exports.post = async (req, res) => {
   exports.get = async (req, res) => {
     try {
       
+      console.log(req.query);
+      
       const CourseType = await courseType.find();
   
       res.status(201).json({
