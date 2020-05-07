@@ -7,6 +7,8 @@ const courseCategoryRouter = require("./routes/courseCategoryRoute");
 const courseStatusRouter = require("./routes/courseStatusRoute");
 const courseAreaRouter = require("./routes/courseAreaRoute");
 const courseClassificationRouter = require("./routes/courseClassificationRoute");
+const userRouter = require('./routes/userRoute');
+
 
 app.use(express.json());
 app.use('/courseType', courseTypeRouter);
@@ -15,6 +17,8 @@ app.use('/courseCategory', courseCategoryRouter);
 app.use('/courseStatus', courseStatusRouter);
 app.use('/courseArea', courseAreaRouter);
 app.use('/courseClassification', courseClassificationRouter);                 // it will be business, HR, Administration,...
+app.use('/users', userRouter);
+
 
 app.use(express.static(`${__dirname}/public`));
 
