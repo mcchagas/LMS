@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
+
 const userSchema = new mongoose.Schema({
     name: {
       type: String,
@@ -10,7 +11,7 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        require: [true, 'The user must have E-mail!'],
+        require: [true, 'The user must have an e-mail.'],
         unique: true,
         lowercase: true,
         validate: [validator.isEmail, 'Please, provide a valid e-mail address!']
@@ -27,12 +28,12 @@ const userSchema = new mongoose.Schema({
             validator: function(el){
                 return el === this.password;
             },
-            message: 'Passwords are not the same!'
+            message: 'passwords are not the same.'
         }
     },  
     mobile: {
         type: String,
-        require: [true, 'The user must have a mobile number!'],
+        require: [true, 'the user must have a mobile number'],
         unique: false
     }
   });
