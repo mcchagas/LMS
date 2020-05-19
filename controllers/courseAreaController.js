@@ -5,7 +5,7 @@ exports.post = async (req, res) => {
     try {
       
       const newArea = await courseArea.create(req.body);
-  
+        
       res.status(201).json({
         status: 'success including new course area',
         data: {
