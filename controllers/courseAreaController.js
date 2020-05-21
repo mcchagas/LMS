@@ -41,8 +41,6 @@ exports.get = async (req, res) => {
       }
 };
 
-
-
   //GET AREAS by ID
   exports.getCourseAreaByID = async (req, res) => {
     try {
@@ -62,7 +60,6 @@ exports.get = async (req, res) => {
         });
       }
 };
-
 
 //PATCH AREA (UPDATE) by ID
 exports.patch = async (req, res) => {
