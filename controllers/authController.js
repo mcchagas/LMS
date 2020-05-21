@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('./../models/userModel');
 const catchAsync = require('./../utils/catchAsync');
+const AppError = require('./../utils/appError');
 
 exports.signup = async (req, res, next) =>{
 try {
@@ -32,16 +33,15 @@ try {
     }
 };
 
-
 exports.login = catchAsync(async (req, res, next) => {
     const { email, password } = req.body;
   
-    // 1) verify if the email and password exist
+    // 1) verify if the email and password exist - if no email // no passw 
     if (!email || !password) {
       return next(new AppError('Please provide email and password!', 400));
     }
     // 2) Check if user exists && password is correct
-    const user = await User.findOne({ email }).select('+password');
+    const user = await User.findOne({ email: email }).select('+password');  // {email neste caso eh o mesmo que email=email / field = var no EX6 tem esse atalho de so colocar email}
   
     if (!user || !(await user.correctPassword(password, user.password))) {
       return next(new AppError('Incorrect email or password', 401));
