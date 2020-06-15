@@ -17,4 +17,5 @@ const courseTypeSchema = new mongoose.Schema({
    courseTypeName: 'test MCH'
   });
   testcourseType.save();
+  
   */
